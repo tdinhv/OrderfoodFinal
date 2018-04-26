@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@color/white"
         android:background="@color/colorPrimaryGreen"
-        app:title="Giỏ Hàng"></android.support.v7.widget.Toolbar>
+        app:title="Back">
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_weight="10"
         android:layout_width="match_parent"

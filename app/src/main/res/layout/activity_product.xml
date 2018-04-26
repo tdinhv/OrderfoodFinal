@@ -18,7 +18,7 @@
                 android:id="@+id/imgviewchitietsanpham"
                 android:layout_width="match_parent"
                 android:layout_height="300px"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/snacks" />
 
             <TextView
                 android:id="@+id/tvtensanpham"
@@ -124,7 +124,7 @@
                         android:textAlignment="center"/>
                     <TextView
                         android:textColor="@color/black"
-                        android:text="DeliveryNow"
+                        android:text="Orderfood"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"/>

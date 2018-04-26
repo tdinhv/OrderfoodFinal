@@ -1,6 +1,7 @@
 package com.luuva.adapter;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.luuva.model.Food;
 import com.luuva.orderfood.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +55,7 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         txtNameFood.setText(food.getNameFood());
         txtAddress.setText(food.getAddress());
         txtDistance.setText(">1km");  //Hiện tại chua có dữ liệu để set
-        txtPrice.setText(food.getPrice()+"");
+        txtPrice.setText(food.getPrice()+" VNĐ");
         txtTimeDelivery.setText("30'"); //Hiện tại chua có dữ liệu để set
         return row;
     }
