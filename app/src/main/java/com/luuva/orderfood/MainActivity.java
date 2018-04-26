@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             listCart= new ArrayList<>();
         }
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 

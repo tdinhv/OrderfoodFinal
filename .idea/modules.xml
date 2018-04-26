@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OrderFood-104-dinh.iml" filepath="$PROJECT_DIR$/OrderFood-104-dinh.iml" />
+      <module fileurl="file://E:\Bung\Android\OrderFoodFinal\OrderfoodFinal\OrderFood-104-dinh.iml" filepath="E:\Bung\Android\OrderFoodFinal\OrderfoodFinal\OrderFood-104-dinh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrderfoodFinal.iml" filepath="$PROJECT_DIR$/OrderfoodFinal.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
