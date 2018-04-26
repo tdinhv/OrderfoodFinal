@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.luuva.model.Category;
 import com.luuva.model.Food;
+import com.luuva.orderfood.FoodByCategory;
 import com.luuva.orderfood.ProductActivity;
 import com.luuva.orderfood.R;
 import com.squareup.picasso.Picasso;
@@ -55,10 +56,9 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context.getApplicationContext(), ProductActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("idCat",category.getId());
-                Log.d("idcat",category.getId()+"");
+                Intent intent = new Intent(context.getApplicationContext(), FoodByCategory.class);
+                intent.putExtra("idCat", category.getId());
+                intent.putExtra("nameCat", category.getName_cat());
                 context.startActivity(intent);
             }
         });

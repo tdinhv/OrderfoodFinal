@@ -92,7 +92,6 @@ public class ClientProfiles extends AppCompatActivity {
                                     @Override
                                     protected Map<String, String> getParams() throws AuthFailureError {
                                         JSONArray jsonArray = new JSONArray();
-
                                         for(int i=0;i<MainActivity.listCart.size();i++){
                                             JSONObject jsonObject = new JSONObject();
                                             try {

@@ -42,9 +42,10 @@
         <activity android:name=".FoodDetail" />
         <activity android:name=".ProductActivity" />
         <activity android:name=".ClientProfiles" />
+        <activity android:name=".FoodByCategory"></activity>
         <activity android:name=".PaymentFragment" />
         <activity android:name=".MapActivity" />
-        +        <activity android:name=".SettingActivity" />
+        <activity android:name=".SettingActivity" />
     </application>
 
 </manifest>

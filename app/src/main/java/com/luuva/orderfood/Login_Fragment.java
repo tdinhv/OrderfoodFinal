@@ -172,10 +172,6 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 						progressDialog.show();
 					}
 				};
-				//Intent intent = new Intent(v.getContext(), MainActivity.class);
-				//startActivity(intent);
-
-
 				break;
 
 			case R.id.forgot_password:
@@ -237,9 +233,6 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 		progressDialog.show();
 		String type = "login";
 		String tag_string_req = "req_login";
-		//BackgroundWorker backgroundWorker = new BackgroundWorker(v);
-		//backgroundWorker.doInBackground(type, getEmailId, getPassword);
-		//backgroundWorker.execute(type, getEmailId, getPassword);
 		Log.d("server login","nee");
 		StringRequest stringRequest = new StringRequest(Request.Method.POST, login_url, new Response.Listener<String>() {
 			@Override
@@ -301,8 +294,6 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 				return params;
 			}
 		};
-		Log.d("vao k", String.valueOf(stringRequest));
-		//requestQueue.add(stringRequest);
 		AndroidLoginController.getInstance().addToRequestQueue(stringRequest, tag_string_req);
 	}
 	private void toast(String x){

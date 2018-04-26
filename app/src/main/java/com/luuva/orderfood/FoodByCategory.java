@@ -5,48 +5,59 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.luuva.adapter.FoodAdapter;
-import com.luuva.background.CatDao;
-import com.luuva.background.FoodDao;
 import com.luuva.model.Food;
+import com.luuva.util.Server;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @SuppressLint("Registered")
-public class ProductActivity extends AppCompatActivity {
+public class FoodByCategory extends AppCompatActivity {
     private ListView lvFood;
     ArrayList<Food> arrFood;
     FoodAdapter productAdapter;
+    int idCat = 0;
+    TextView txtDanhMuc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_food_by_category);
+        txtDanhMuc = findViewById(R.id.tvTenDanhMuc);
+        txtDanhMuc.setText(getIntent().getStringExtra("nameCat"));
         lvFood = findViewById(R.id.lv_Product);
         arrFood = new ArrayList<>();
+        idCat = getIntent().getIntExtra("idCat", -1);
+        Log.d("conce+++", idCat + "");
         getList();
-        productAdapter = new FoodAdapter(ProductActivity.this, R.layout.lv_item_food, arrFood);
+
+        productAdapter = new FoodAdapter(FoodByCategory.this, R.layout.lv_item_food, arrFood);
         lvFood.setAdapter(productAdapter);
 
         lvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
                 Food food = arrFood.get(i);
-                Intent intent = new Intent(ProductActivity.this, FoodDetail.class);
+                Intent intent = new Intent(FoodByCategory.this, FoodDetail.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("food", food);
                 intent.putExtra("packageFood", bundle);
@@ -56,38 +67,39 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     public void getList() {
-
-        final String url = "https://lebavy1611.000webhostapp.com/get_all_products.php";
         String tag_string_req = "getlistfood";
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.Duongdansanphamtheodanhmuc, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONArray response) {
+            public void onResponse(String response) {
                 if (response != null) {
                     Food objFood;
                     try {
-                        for (int i = 0; i < response.length(); i++) {
-                            JSONObject jObj = response.getJSONObject(i);
+                        JSONArray jsonArray = new JSONArray(response);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jObj = jsonArray.getJSONObject(i);
                             objFood = new Food(jObj.getInt("id"), jObj.getString("name_food"), jObj.getInt("price"), "R.drawable." + jObj.getString("image"), jObj.getString("date_create"), jObj.getString("address"), jObj.getInt("shop_id"), jObj.getInt("id_cat"));
                             arrFood.add(objFood);
+                            productAdapter.notifyDataSetChanged();
                         }
-                        productAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
             }
 
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Log.e(TAG, "Login Error: " + error.getMessage());
-                //toast("Unknown Error occurred");
-                //progressDialog.hide();
             }
-        });
-
-        AndroidLoginController.getInstance().addToRequestQueue(jsonArrayRequest, tag_string_req);
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> hashMap = new HashMap<String, String>();
+                hashMap.put("idCat", String.valueOf(idCat));
+                return hashMap;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 }

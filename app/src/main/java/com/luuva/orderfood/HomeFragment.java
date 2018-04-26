@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Food food = foods.get(i);
                 Intent intent = new Intent(getActivity(), ProductActivity.class);
-/*
+                /*
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("food",food);*/
                 startActivity(intent);
@@ -131,7 +131,6 @@ public class HomeFragment extends Fragment {
             public void onResponse(JSONArray response) {
                 if (response != null) {
                     Category objCat;
-
                     try {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject jObj = response.getJSONObject(i);
