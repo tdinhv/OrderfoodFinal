@@ -2,9 +2,13 @@ package com.luuva.orderfood;
 
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -18,7 +22,9 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.luuva.adapter.FoodAdapter;
 import com.luuva.background.CatDao;
 import com.luuva.background.FoodDao;
+import com.luuva.background.UserSession;
 import com.luuva.model.Food;
+import com.luuva.model.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +43,44 @@ public class ProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         lvFood = findViewById(R.id.lv_Product);
+        UserSession session = new UserSession(getApplication());
+        final User userLogin = session.getUserLogin();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment =null;
+                Intent intent;
+                Bundle bundle = new Bundle();
+                switch (item.getItemId()){
+                    case R.id.action_home:
+                        intent = new Intent(ProductActivity.this, MainActivity.class);
+                        bundle.putInt("fragment", 1);
+                        intent.putExtra("frag", bundle);
+                        startActivity(intent);
+                        break;
+                    case R.id.action_noti:
+                        intent = new Intent(ProductActivity.this, MainActivity.class);
+                        bundle.putInt("fragment", 2);
+                        intent.putExtra("frag", bundle);
+                        startActivity(intent);
+                        break;
+                    case R.id.action_acc:
+                        if(userLogin==null){
+                            Intent intent3 = new Intent(ProductActivity.this, MainLoginActivity.class);
+                            startActivity(intent3);
+                        }else{
+                            intent = new Intent(ProductActivity.this, MainActivity.class);
+                            bundle.putInt("fragment", 3);
+                            intent.putExtra("frag", bundle);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
         arrFood = new ArrayList<>();
         getList();
         productAdapter = new FoodAdapter(ProductActivity.this, R.layout.lv_item_food, arrFood);
@@ -90,4 +134,5 @@ public class ProductActivity extends AppCompatActivity {
 
         AndroidLoginController.getInstance().addToRequestQueue(jsonArrayRequest, tag_string_req);
     }
+
 }

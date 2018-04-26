@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         UserSession session = new UserSession(getApplication());
         final User userLogin = session.getUserLogin();
+        Intent intent =getIntent();
+        Fragment fragmentLoad = null;
         //Array giỏ hàng
         if(listCart != null){
 
@@ -71,9 +74,38 @@ public class MainActivity extends AppCompatActivity {
                 return loadFragment(fragment);
             }
         });
-        loadFragment(new HomeFragment());
-//        addControll();
-//        addEvent();
+        if(intent!=null) {
+            Bundle bundle = intent.getBundleExtra("frag");
+
+            if (bundle != null){
+                int x = bundle.getInt("fragment");
+                Log.d("fragment",x+"");
+                switch (x) {
+                    case 1:
+                        fragmentLoad = new HomeFragment();
+                        Log.d("fragment 1",x+"");
+                        break;
+                    case 2:
+                        fragmentLoad = new NotificationsFragment();
+                        Log.d("fragment 2",x+"");
+                        break;
+                    case 3:
+                        if (userLogin == null) {
+                            Intent intent2 = new Intent(MainActivity.this, MainLoginActivity.class);
+                            startActivity(intent2);
+                        } else {
+                            Log.d("fragment 3",x+"");
+                            fragmentLoad = new UserFragment();
+                        }
+                        break;
+                }
+                loadFragment(fragmentLoad);
+                //finish();
+            }else{
+                Log.d("st","vao");
+                loadFragment(new HomeFragment());
+            }
+        }
 
     }
 

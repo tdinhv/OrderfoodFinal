@@ -30,6 +30,7 @@
             android:layout_weight="1"
             android:textSize="15sp"
             android:text="Lưu"
+            android:id="@+id/btnLuu"
             android:layout_marginRight="7dp"
             android:layout_alignParentRight="true"
             android:paddingTop="5dp"
@@ -39,17 +40,17 @@
             />
 
     </RelativeLayout>
-   <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Tên đăng nhập"
             android:textSize="15sp" />
 
@@ -58,7 +59,7 @@
             android:layout_width="0dp"
             android:enabled="false"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="7"
             />
 
     </LinearLayout>
@@ -67,12 +68,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Họ tên:"
             android:textSize="15sp" />
 
@@ -80,8 +81,8 @@
             android:id="@+id/edtName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-             />
+            android:layout_weight="7"
+            />
 
     </LinearLayout>
 
@@ -90,20 +91,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Email"
             android:textSize="15sp" />
 
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="0dp"
+            android:enabled="false"
             android:layout_height="wrap_content"
-            android:layout_weight="3" />
+            android:layout_weight="7" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -112,12 +114,12 @@
         android:layout_marginLeft="7dp"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Giới tính"
             android:textSize="15sp" />
 
@@ -125,7 +127,7 @@
             android:id="@+id/rdgroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="7"
             android:orientation="horizontal"
             android:layout_marginLeft="72dp">
             <RadioButton
@@ -134,13 +136,13 @@
                 android:layout_height="wrap_content"
                 android:text="Nam"
 
-                android:layout_weight="1.5"/>
+                android:layout_weight="3.5"/>
 
             <RadioButton
                 android:id="@+id/radioButtonNu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
+                android:layout_weight="3.5"
                 android:text="Nữ" />
 
         </RadioGroup>
@@ -151,12 +153,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Ngày sinh"
             android:textSize="15sp" />
 
@@ -164,19 +166,19 @@
             android:id="@+id/edtBirthday"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3" />
+            android:layout_weight="7" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Số điện thoại"
             android:textSize="15sp" />
 
@@ -184,19 +186,19 @@
             android:id="@+id/edtPhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3" />
+            android:layout_weight="7" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="7dp"
-        android:weightSum="5">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="Địa chỉ"
             android:textSize="15sp" />
 
@@ -204,7 +206,47 @@
             android:id="@+id/edtAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3" />
+            android:layout_weight="7" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="7dp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Mật khẩu mới"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edtNewPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="7dp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Xác nhận MK"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edtConfirmPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7" />
     </LinearLayout>
 
 </LinearLayout>
