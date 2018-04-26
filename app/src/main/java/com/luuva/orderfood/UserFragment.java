@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,12 +18,13 @@ import com.luuva.model.User;
 import com.luuva.model.UserOption;
 
 import java.util.ArrayList;
+
 public class UserFragment extends Fragment {
     ListView lvItem;
     ArrayList<UserOption> dsUser;
     UserAdapter userAdapter;
-    TextView tvTT,tvFullname;
-    Button btnLogout;
+    TextView tvTT,tvFullname,btnLogout;
+//    Button btnLogout;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
@@ -40,14 +41,14 @@ public class UserFragment extends Fragment {
         dsUser.add(new UserOption("Lịch sử", R.drawable.icon_1));
         dsUser.add(new UserOption("Yêu thích", R.drawable.icon_2));
         dsUser.add(new UserOption("PayNow", R.drawable.icon_3));
-        dsUser.add(new UserOption("Điạ chỉ", R.drawable.icon_4));
+        dsUser.add(new UserOption("Vị trí", R.drawable.icon_4));
         dsUser.add(new UserOption("Hoá đơn", R.drawable.icon_5));
         dsUser.add(new UserOption("Mời bạn bè", R.drawable.icon_6));
         dsUser.add(new UserOption("Góp ý", R.drawable.icon_7));
         dsUser.add(new UserOption("Chính sách quy định", R.drawable.icon_8));
         dsUser.add(new UserOption("Cài đặt", R.drawable.icon_9));
 
-        userAdapter = new UserAdapter(getActivity(),R.layout.user_item,dsUser);
+        userAdapter = new UserAdapter(getActivity(), R.layout.user_item,dsUser);
         lvItem.setAdapter(userAdapter);
         tvTT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,22 @@ public class UserFragment extends Fragment {
                 // Toast.makeText(view.getContext(),"Test",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(),UserInformation.class) ;
                 startActivity(intent);
+            }
+        });
+        lvItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 2){
+                    Intent intent = new Intent(view.getContext(),PaymentFragment.class) ;
+                    startActivity(intent);
+                }else if(position == 3 ){
+                    Intent intent = new Intent(view.getContext(),MapActivity.class) ;
+                    startActivity(intent);
+                }else if(position == 8 ){
+                    Intent intent = new Intent(view.getContext(),SettingActivity.class) ;
+                    startActivity(intent);
+                }
+
             }
         });
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -70,9 +87,5 @@ public class UserFragment extends Fragment {
             }
         });
         return view;
-    }
-    public void thongTin(View view){
-        Intent intent = new Intent(view.getContext(),UserInformation.class) ;
-        startActivity(intent);
     }
 }

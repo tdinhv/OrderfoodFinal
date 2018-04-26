@@ -38,6 +38,8 @@ public class ClientProfiles extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_profiles);
+        Intent intent = new Intent(ClientProfiles.this,MapActivity.class) ;
+        startActivity(intent);
         AnhXa();
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
