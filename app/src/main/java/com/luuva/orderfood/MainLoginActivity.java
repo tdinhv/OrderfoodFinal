@@ -1,9 +1,11 @@
 package com.luuva.orderfood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.luuva.model.Utils;
 
@@ -25,16 +27,19 @@ public class MainLoginActivity extends AppCompatActivity {
         }
 
 
-        /*findViewById(R.id.close_activity).setOnClickListener(
+        findViewById(R.id.close_activity).setOnClickListener(
 
-                new OnClickListener() {
+                new View.OnClickListener() {
 
                     @Override
                     public void onClick(View arg0) {
-                        finish();
-
+                        Intent intent = new Intent(MainLoginActivity.this, MainActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("fragment", 1);
+                        intent.putExtra("frag", bundle);
+                        startActivity(intent);
                     }
-                });*/
+                });
 
     }
 
@@ -64,7 +69,12 @@ public class MainLoginActivity extends AppCompatActivity {
             replaceLoginFragment();
         else if (ForgotPassword_Fragment != null)
             replaceLoginFragment();
-        else
-            super.onBackPressed();
+        else {
+            Intent intent = new Intent(MainLoginActivity.this, MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("fragment", 1);
+            intent.putExtra("frag", bundle);
+            startActivity(intent);
+        }
     }
 }
