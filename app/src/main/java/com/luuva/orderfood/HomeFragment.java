@@ -144,7 +144,6 @@ public class HomeFragment extends Fragment {
                             JSONObject jObj = response.getJSONObject(i);
                             objFood = new Food(jObj.getInt("id"), jObj.getString("name_food"), jObj.getInt("price"), jObj.getString("image"), jObj.getString("date_create"), jObj.getString("address"), jObj.getInt("shop_id"),jObj.getInt("id_cat"), jObj.getString("description"));
                             listFoodFavorite.add(objFood);
-                            Log.d("tessssssssssssss",listFoodFavorite.size()+"");
                         }
                         foodAdapter = new FoodAdapter(getActivity(), R.layout.lv_item_food, listFoodFavorite);
                         lvFood.setAdapter(foodAdapter);

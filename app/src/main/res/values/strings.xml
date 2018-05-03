@@ -44,4 +44,8 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string name="home_page">Trang chủ</string>
+    <string name="notice">Thông báo</string>
+    <string name="account">Tài khoản</string>
+
 </resources>

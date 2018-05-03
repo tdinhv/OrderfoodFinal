@@ -6,18 +6,18 @@
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/ic_action_one"
-        android:title="Trang chủ"
+        android:title="@string/home_page"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_noti"
         android:enabled="true"
         android:icon="@drawable/ic_action_two"
-        android:title="Thông báo"
+        android:title="@string/notice"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_acc"
         android:enabled="true"
         android:icon="@drawable/ic_action_three"
-        android:title="Tài khoản"
+        android:title="@string/account"
         app:showAsAction="always" />
 </menu>
