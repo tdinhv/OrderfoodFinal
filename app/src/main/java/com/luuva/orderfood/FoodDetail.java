@@ -5,6 +5,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.luuva.model.Cart;
 import com.luuva.model.Food;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -31,11 +33,12 @@ public class FoodDetail extends AppCompatActivity {
 
     ArrayList<Cart> arrCart;
 
-    int idSanpham=0;
-    String TenChiTiet="";
-    int Giachitiet=0;
-    String HinhAnhChiTiet="";
-    int IdShop=0;
+    private int idSanpham=0;
+    private String TenChiTiet="";
+    private int Giachitiet=0;
+    private String HinhAnhChiTiet="";
+    private int IdShop=0;
+    private String Description="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,6 @@ public class FoodDetail extends AppCompatActivity {
 
         GetInformation();
         CatchEventSpinner();
-        //food_image.setImageResource(Integer.parseInt(food.getImage()));
         Eventbutton();
     }
     @Override
@@ -111,13 +113,15 @@ public class FoodDetail extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("packageFood");
         Food food = (Food) bundle.getSerializable("food");
         idSanpham= food.getId();
+        Picasso.get().load("https://lebavy1611.000webhostapp.com/pictest/"+food.getImage()).into(food_image);
         TenChiTiet =food.getNameFood();
+        Description = food.getDescription();
         Giachitiet = food.getPrice();
-        HinhAnhChiTiet =food.getImage();
         IdShop = food.getShopId();
         food_name.setText(TenChiTiet);
         DecimalFormat decimalFormat = new DecimalFormat("####,###,###");
         food_price.setText(decimalFormat.format(Giachitiet));
+        food_description.setText(Description);
     }
 
     private void Anhxa() {
@@ -126,7 +130,7 @@ public class FoodDetail extends AppCompatActivity {
         food_description = (TextView) findViewById(R.id.food_description);
         food_name = (TextView) findViewById(R.id.food_name);
         food_price = (TextView) findViewById(R.id.food_price);
-        food_image = (ImageView) findViewById(R.id.foo_image);
+        food_image = (ImageView) findViewById(R.id.food_image);
     }
 
 }

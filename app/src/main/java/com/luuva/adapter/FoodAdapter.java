@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.luuva.model.Food;
 import com.luuva.orderfood.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +42,6 @@ public class FoodAdapter extends ArrayAdapter<Food> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = this.context.getLayoutInflater();
         View row = inflater.inflate(R.layout.lv_item_food,null);
-
-
         ImageView imgFood = row.findViewById(R.id.imgFood);
         TextView txtNameFood = row.findViewById(R.id.txtNameFood);
         TextView txtAddress = row.findViewById(R.id.txtAddress);
@@ -51,7 +51,8 @@ public class FoodAdapter extends ArrayAdapter<Food> {
 
         Food food = this.objects.get(position);
 
-        imgFood.setImageResource(R.drawable.food);
+        Picasso.get().load("https://lebavy1611.000webhostapp.com/pictest/"+food.getImage()).into(imgFood);
+        Log.d("anhthucan",food.getImage());
         txtNameFood.setText(food.getNameFood());
         txtAddress.setText(food.getAddress());
         txtDistance.setText(">1km");  //Hiện tại chua có dữ liệu để set

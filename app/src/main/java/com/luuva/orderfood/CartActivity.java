@@ -63,7 +63,6 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (MainActivity.listCart.size() > 0) {
-                    Log.d("size+++++",MainActivity.listCart.size()+"");
                     Intent intent = new Intent(getApplicationContext(),ClientProfiles.class);
                     startActivity(intent);
                 } else {

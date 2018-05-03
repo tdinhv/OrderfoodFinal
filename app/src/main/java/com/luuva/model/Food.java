@@ -16,6 +16,7 @@ public class Food implements Serializable {
     private String address;
     private int shopId;
     private int catId;
+    private String description;
 
     public int getId() {
         return id;
@@ -81,7 +82,15 @@ public class Food implements Serializable {
         this.catId = catId;
     }
 
-    public Food(int id, String nameFood, int price, String image, String dateCreate, String address, int shopId, int catId) {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Food(int id, String nameFood, int price, String image, String dateCreate, String address, int shopId, int catId, String description) {
         this.id = id;
         this.nameFood = nameFood;
         this.price = price;
@@ -90,5 +99,6 @@ public class Food implements Serializable {
         this.address = address;
         this.shopId = shopId;
         this.catId = catId;
+        this.description = description;
     }
 }

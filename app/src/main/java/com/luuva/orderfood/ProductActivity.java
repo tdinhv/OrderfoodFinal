@@ -11,17 +11,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.luuva.adapter.FoodAdapter;
-import com.luuva.background.CatDao;
-import com.luuva.background.FoodDao;
 import com.luuva.background.UserSession;
 import com.luuva.model.Food;
 import com.luuva.model.User;
@@ -111,7 +107,7 @@ public class ProductActivity extends AppCompatActivity {
                     try {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject jObj = response.getJSONObject(i);
-                            objFood = new Food(jObj.getInt("id"), jObj.getString("name_food"), jObj.getInt("price"), "R.drawable." + jObj.getString("image"), jObj.getString("date_create"), jObj.getString("address"), jObj.getInt("shop_id"), jObj.getInt("id_cat"));
+                            objFood = new Food(jObj.getInt("id"), jObj.getString("name_food"), jObj.getInt("price"), jObj.getString("image"), jObj.getString("date_create"), jObj.getString("address"), jObj.getInt("shop_id"),jObj.getInt("id_cat"), jObj.getString("description"));
                             arrFood.add(objFood);
                         }
                         productAdapter.notifyDataSetChanged();
