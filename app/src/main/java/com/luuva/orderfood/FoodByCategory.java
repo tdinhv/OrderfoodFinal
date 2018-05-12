@@ -39,10 +39,10 @@ import java.util.Map;
 @SuppressLint("Registered")
 public class FoodByCategory extends AppCompatActivity {
     private ListView lvFood;
-    ArrayList<Food> arrFood;
-    FoodAdapter productAdapter;
-    int idCat = 0;
-    TextView txtDanhMuc;
+    private ArrayList<Food> arrFood;
+    private FoodAdapter productAdapter;
+    private int idCat = 0;
+    private TextView txtDanhMuc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

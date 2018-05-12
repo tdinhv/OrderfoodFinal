@@ -36,13 +36,12 @@ import java.util.ArrayList;
  */
 
 public class HomeFragment extends Fragment {
-    GridView gvCategory;
-    ArrayList<Category> categories;
-    ArrayList<Food> listFoodFavorite;
-    CategoryAdapter adapter;
-    ListView lvFood, lvNearMe;
-    ArrayList<Food> foods, foodsNearMe;
-    FoodAdapter foodAdapter, nearMeAdapter;
+    private GridView gvCategory;
+    private ArrayList<Category> categories;
+    private CategoryAdapter adapter;
+    private ListView lvFood, lvNearMe;
+    private ArrayList<Food> listFoodFavorite, foodsNearMe;
+    private FoodAdapter foodAdapter, nearMeAdapter;
 
 
     @Nullable
@@ -92,12 +91,6 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        /*gvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });*/
         return view;
     }
 
@@ -111,7 +104,31 @@ public class HomeFragment extends Fragment {
                     try {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject jObj = response.getJSONObject(i);
-                            objCat = new Category(jObj.getInt("id"), jObj.getString("name_cat"), jObj.getString("picture"));
+                            int picture = 0;
+                            switch (i){
+                                case 0:
+                                    picture = R.drawable.anh1;
+                                    break;
+                                case 1:
+                                    picture = R.drawable.anh2;
+                                    break;
+                                case 2:
+                                    picture = R.drawable.anh3;
+                                    break;
+                                case 3:
+                                    picture = R.drawable.anh4;
+                                    break;
+                                case 4:
+                                    picture = R.drawable.anh5;
+                                    break;
+                                case 5:
+                                    picture = R.drawable.anh6;
+                                    break;
+                                default:
+                                    picture = R.drawable.anh6;
+                                    break;
+                            }
+                            objCat = new Category(jObj.getInt("id"), jObj.getString("name_cat"), picture);
                             categories.add(objCat);
                         }
                         adapter = new CategoryAdapter(getActivity(), R.layout.gv_item, categories);

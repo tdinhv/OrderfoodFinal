@@ -41,12 +41,12 @@ import java.util.regex.Pattern;
  */
 
 public class UserInformation extends AppCompatActivity {
-    TextView ttB,fullName,btnLuu;
-    EditText edtUsername, edtName, edtEmail, edtBirthday, edtPhone, edtAddress,edtNewPass,edtConfirmPass;
-    RadioButton rdNam, rdNu,radioButton;
-    RadioGroup rdgroup;
-    User userLogin;
-    String getId, getUserName,getFullName,getEmailId,getLocation,getMobileNumber,getPassword,getConfirmPassword,gender,getDateOfBirth;
+    private TextView ttB,fullName,btnLuu;
+    private EditText edtUsername, edtName, edtEmail, edtBirthday, edtPhone, edtAddress,edtNewPass,edtConfirmPass;
+    private RadioButton rdNam, rdNu,radioButton;
+    private RadioGroup rdgroup;
+    private User userLogin;
+    private String getId, getUserName,getFullName,getEmailId,getLocation,getMobileNumber,getPassword,getConfirmPassword,gender,getDateOfBirth;
     private UserSession session;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

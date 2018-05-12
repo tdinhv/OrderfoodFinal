@@ -31,8 +31,8 @@ import java.util.ArrayList;
 @SuppressLint("Registered")
 public class ProductActivity extends AppCompatActivity {
     private ListView lvFood;
-    ArrayList<Food> arrFood;
-    FoodAdapter productAdapter;
+    private ArrayList<Food> arrFood;
+    private FoodAdapter productAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

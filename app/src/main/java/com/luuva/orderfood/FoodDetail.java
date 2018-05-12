@@ -24,12 +24,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FoodDetail extends AppCompatActivity {
-    ListView lvFood;
-    TextView food_name, food_price, food_description;
-    ImageView food_image;
+    private ListView lvFood;
+    private TextView food_name, food_price, food_description;
+    private ImageView food_image;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    FloatingActionButton btnCart;
-    Spinner spinner;
+    private FloatingActionButton btnCart;
+    private Spinner spinner;
 
     ArrayList<Cart> arrCart;
 

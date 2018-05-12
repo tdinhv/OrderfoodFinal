@@ -12,10 +12,10 @@ import com.luuva.model.Payment;
 import java.util.ArrayList;
 
 public class PaymentFragment extends AppCompatActivity {
-    ListView lvItem_pay;
-    ArrayList<Payment> dsPayment;
-    PaymentAdapter payAdapter;
-    TextView ttB;
+    private ListView lvItem_pay;
+    private ArrayList<Payment> dsPayment;
+    private PaymentAdapter payAdapter;
+    private TextView ttB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

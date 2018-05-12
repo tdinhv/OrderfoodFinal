@@ -27,9 +27,9 @@ import java.util.List;
 
 public class FoodAdapter extends ArrayAdapter<Food> {
 
-    Activity context;
-    int resource;
-    List<Food> objects;
+    private Activity context;
+    private int resource;
+    private List<Food> objects;
     public FoodAdapter(@NonNull Activity context, int resource, @NonNull List<Food> objects) {
         super(context, resource, objects);
         this.context = context;

@@ -31,12 +31,12 @@ import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
 
-    ListView lvCart;
+    private ListView lvCart;
     static TextView txtTotalPrice;
-    TextView txtThongBao;
-    Button btnPlaceOrder, btnTiepTucMua;
+    private TextView txtThongBao;
+    private Button btnPlaceOrder, btnTiepTucMua;
     android.support.v7.widget.Toolbar toolbargiohang;
-    CartAdapter cartAdapter;
+    private CartAdapter cartAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override

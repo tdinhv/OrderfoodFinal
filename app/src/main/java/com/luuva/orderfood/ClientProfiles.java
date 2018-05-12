@@ -32,8 +32,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClientProfiles extends AppCompatActivity {
-    EditText edtNameClient, edtPhoneClient, edtAddressClient;
-    Button btnAccept, btnBack;
+    private EditText edtNameClient, edtPhoneClient, edtAddressClient;
+    private Button btnAccept, btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

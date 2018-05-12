@@ -19,9 +19,9 @@ import java.util.List;
  */
 
 public class NewAdapter extends ArrayAdapter<New> {
-    Activity context;
-    int resource;
-    List<New> objects;
+    private Activity context;
+    private int resource;
+    private List<New> objects;
 
     public NewAdapter(@NonNull Activity context, int resource, @NonNull List<New> objects) {
         super(context, resource, objects);

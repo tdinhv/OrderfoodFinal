@@ -30,9 +30,9 @@ import java.util.List;
  */
 
 public class CategoryAdapter extends ArrayAdapter<Category> {
-    Activity context;
-    int resource;
-    List<Category> objects;
+    private Activity context;
+    private int resource;
+    private List<Category> objects;
     public CategoryAdapter(@NonNull Activity context, int resource, @NonNull List<Category> objects) {
         super(context, resource, objects);
         this.context = context;
@@ -45,10 +45,12 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
     public View getView(int position, @Nullable final View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = this.context.getLayoutInflater();
         View row = inflater.inflate(R.layout.gv_item,null);
+
         ImageButton btnCategory = row.findViewById(R.id.btnCategory);
         TextView txtCategory = row.findViewById(R.id.txtCategory);
+
         final Category category = this.objects.get(position); // lấy đối tượng từ List
-        Picasso.get().load("https://lebavy1611.000webhostapp.com/pictest/"+category.getPicture()).into(btnCategory);
+        btnCategory.setImageResource(category.getPicture());
         txtCategory.setText(category.getName_cat());
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override

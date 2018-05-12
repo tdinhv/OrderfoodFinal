@@ -18,9 +18,9 @@ import java.util.List;
 
 public class PaymentAdapter extends ArrayAdapter<Payment> {
 
-    Activity context;
-    int resource;
-    List<Payment> objects;
+    private Activity context;
+    private int resource;
+    private List<Payment> objects;
     public PaymentAdapter(@NonNull Activity context, int resource, @NonNull List<Payment> objects) {
         super(context, resource, objects);
         this.context = context;

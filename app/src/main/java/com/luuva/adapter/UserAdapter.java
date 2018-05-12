@@ -22,9 +22,9 @@ import java.util.List;
 
 public class UserAdapter extends ArrayAdapter<UserOption> {
 
-    Activity context;
-    int resource;
-    List<UserOption> objects;
+    private Activity context;
+    private int resource;
+    private List<UserOption> objects;
     public UserAdapter(@NonNull Activity context, int resource, @NonNull List<UserOption> objects) {
         super(context, resource, objects);
         this.context = context;

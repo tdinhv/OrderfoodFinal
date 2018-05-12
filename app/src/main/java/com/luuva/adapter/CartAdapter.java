@@ -26,9 +26,9 @@ import java.util.List;
  */
 
 public class CartAdapter extends BaseAdapter {
-    Context context;
-    ArrayList<Cart> arrayCart;
-    ViewHolder viewHolder;
+    private Context context;
+    private ArrayList<Cart> arrayCart;
+    private ViewHolder viewHolder;
 
     public CartAdapter(Context context, ArrayList<Cart> arrayCart) {
         this.context = context;

@@ -20,10 +20,10 @@ import com.luuva.model.UserOption;
 import java.util.ArrayList;
 
 public class UserFragment extends Fragment {
-    ListView lvItem;
-    ArrayList<UserOption> dsUser;
-    UserAdapter userAdapter;
-    TextView tvTT,tvFullname,btnLogout;
+    private ListView lvItem;
+    private ArrayList<UserOption> dsUser;
+    private UserAdapter userAdapter;
+    private TextView tvTT,tvFullname,btnLogout;
 //    Button btnLogout;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

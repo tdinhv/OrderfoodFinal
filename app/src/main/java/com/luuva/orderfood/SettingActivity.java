@@ -19,10 +19,10 @@ import java.util.ArrayList;
  */
 
 public class SettingActivity extends AppCompatActivity {
-    ListView lvItem_set;
-    ArrayList<Setting> dsSet;
-    SettingAdapter setAdapter;
-    TextView ttB;
+    private ListView lvItem_set;
+    private ArrayList<Setting> dsSet;
+    private SettingAdapter setAdapter;
+    private TextView ttB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

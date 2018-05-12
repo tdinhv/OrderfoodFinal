@@ -23,9 +23,9 @@ import java.util.List;
  */
 
 public class SettingAdapter extends ArrayAdapter<Setting> {
-    Activity context;
-    int resource;
-    List<Setting> objects;
+    private Activity context;
+    private int resource;
+    private List<Setting> objects;
 
     public SettingAdapter(@NonNull Activity context, int resource, @NonNull List<Setting> objects) {
         super(context, resource, objects);
