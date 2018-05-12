@@ -52,7 +52,6 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         Food food = this.objects.get(position);
 
         Picasso.get().load("https://lebavy1611.000webhostapp.com/pictest/"+food.getImage()).into(imgFood);
-        Log.d("anhthucan",food.getImage());
         txtNameFood.setText(food.getNameFood());
         txtAddress.setText(food.getAddress());
         txtDistance.setText(">1km");  //Hiện tại chua có dữ liệu để set
